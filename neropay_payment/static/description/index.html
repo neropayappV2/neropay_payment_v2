@@ -1,0 +1,30 @@
+<section class="container" style="padding:32px;color:#172033">
+  <div style="background:#111827;color:#fff;border-radius:20px;padding:36px">
+    <p style="color:#F8E71C;font-weight:700">NEROPAY · ODOO 19</p>
+    <h1 style="color:#fff">Payments where your business works.</h1>
+    <p>Hosted NeroPay checkout for online orders and customer invoices.</p>
+  </div>
+  <h2 style="margin-top:28px">One checkout. Verified payment status.</h2>
+  <ul>
+    <li>Native Odoo payment-provider configuration for Website, eCommerce and invoice payment flows.</li>
+    <li>NeroPay API v2 authentication, signed creation requests and stable order references.</li>
+    <li>Server-side verification of merchant account, transaction reference, amount and currency.</li>
+    <li>IPN-triggered verification, scheduled recovery and an accountant's Check NeroPay status button.</li>
+    <li>GBP, EUR and USD; merchant currency availability and payment limits still apply.</li>
+    <li>Direct merchant or authorised NeroConnect platform credentials with an explicit target account.</li>
+  </ul>
+  <h2>Hosting requirements</h2>
+  <p>Requires Odoo 19.0 on Odoo.sh or self-hosted Odoo. This Python module cannot be installed on Odoo Online saas-19.4. It does not require a separate connector website.</p>
+  <h2>Configuration</h2>
+  <ol>
+    <li>Install the module into a development branch and configure an HTTPS Odoo domain.</li>
+    <li>Open Accounting / Configuration / Payment Providers / NeroPay.</li>
+    <li>Enter the receiving merchant's exact public account ID and API v2 secret. Keep secrets server-side.</li>
+    <li>Check API connectivity and configure a dedicated NeroPay clearing journal.</li>
+    <li>Complete staging acceptance tests before enabling real payments and publishing the provider.</li>
+  </ol>
+  <h2>Clear scope</h2>
+  <p>This release does not include POS terminal integration, saved payment tokens, automatic subscription renewals, refunds initiated in Odoo, payout/fee import or bank-settlement reconciliation. Subscription invoices can use an individual hosted checkout where Odoo offers the invoice payment flow. Paid transactions and bank settlements are different accounting events.</p>
+  <p>Do not use the API v2 dry-run sandbox to mark real orders paid. Odoo's Test state is intentionally blocked in this release. Use mocked automated tests and separately authorised live acceptance testing.</p>
+  <p>Release candidate: local contract and workflow tests are provided. Deployment in your Odoo environment and live end-to-end acceptance testing are required before production use.</p>
+</section>

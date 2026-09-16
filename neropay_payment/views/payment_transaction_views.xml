@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_transaction_form" model="ir.ui.view">
+        <field name="name">NeroPay Transaction Form</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.payment_transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_neropay_refresh" type="object" string="Check NeroPay status"
+                        invisible="provider_code != 'neropay' or state == 'done'"
+                        groups="account.group_account_invoice"/>
+            </xpath>
+            <group name="transaction_details" position="after">
+                <group string="NeroPay verification" invisible="provider_code != 'neropay'">
+                    <field name="neropay_identifier"/>
+                    <field name="neropay_link_id"/>
+                    <field name="neropay_last_check"/>
+                    <field name="neropay_needs_review"/>
+                    <field name="neropay_review_note" invisible="not neropay_needs_review"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

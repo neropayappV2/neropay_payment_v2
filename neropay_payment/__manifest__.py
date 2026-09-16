@@ -1,0 +1,23 @@
+{
+    'name': 'NeroPay Payment Gateway',
+    'version': '19.0.1.0.0',
+    'category': 'Accounting/Payment Providers',
+    'summary': 'Hosted NeroPay checkout for Odoo sales and customer invoices',
+    'description': 'Native Odoo 19 payment provider. Requires Odoo.sh or self-hosted Odoo; not Odoo Online. Website checkout and invoice collection only. No POS terminal, automatic recurring debit, automated refunds or settlement reconciliation in this release.',
+    'author': 'NeroPay',
+    'website': 'https://docs.neropay.app/api/',
+    'license': 'LGPL-3',
+    'depends': ['account_payment'],
+    'external_dependencies': {'python': ['requests']},
+    'data': [
+        'views/templates.xml',
+        'views/payment_provider_views.xml',
+        'views/payment_transaction_views.xml',
+        'data/payment_provider_data.xml',
+        'data/cron.xml',
+    ],
+    'post_init_hook': 'post_init_hook',
+    'uninstall_hook': 'uninstall_hook',
+    'application': False,
+    'installable': True,
+}

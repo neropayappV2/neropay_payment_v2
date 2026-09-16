@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="redirect_form">
+        <form t-att-action="api_url" method="post">
+            <input type="hidden" name="token" t-att-value="token"/>
+        </form>
+    </template>
+    <template id="payment_waiting" name="NeroPay payment review">
+        <t t-call="web.frontend_layout">
+            <main class="container py-5">
+                <div class="card mx-auto" style="max-width:680px">
+                    <div class="card-body p-4">
+                        <h1 class="h3">We are checking your payment</h1>
+                        <p>Your payment request needs to be checked before another payment is started.</p>
+                        <p>Please do not pay again. Contact the shop if your order status does not update.</p>
+                        <a href="/payment/status" class="btn btn-primary">View payment status</a>
+                    </div>
+                </div>
+            </main>
+        </t>
+    </template>
+</odoo>

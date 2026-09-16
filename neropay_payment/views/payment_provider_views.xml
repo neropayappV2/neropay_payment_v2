@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">NeroPay Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <group invisible="code != 'neropay'">
+                    <field name="neropay_account_id" required="code == 'neropay' and state != 'disabled'"/>
+                    <field name="neropay_secret_key" password="True" groups="base.group_system"
+                           required="code == 'neropay' and state != 'disabled'"/>
+                    <field name="neropay_live_confirmed"/>
+                    <button name="action_neropay_check_connection" type="object" string="Check API connection"
+                            class="btn-secondary" groups="base.group_system"/>
+                </group>
+            </group>
+            <group name="provider_config" position="before">
+                <div class="alert alert-info" role="alert" invisible="code != 'neropay'">
+                    Hosted checkout and invoice payments. This version does not support POS terminals,
+                    automatic subscription charges or refunds from Odoo. Test mode is not a payment
+                    simulator. Configure a NeroPay clearing journal and test on a separate staging database.
+                </div>
+            </group>
+        </field>
+    </record>
+</odoo>
